@@ -17,16 +17,11 @@ export const UserPage = () => {
             setUserList(oldArray => [...oldArray, data]);
         } else {
             userList[userEditIndex] =data;
-
             setUserList([...userList]);
-
         }
         setUserEditIndex(-1);
         setUserEditObj({})
-
-
     };
-
 
     const handleEditUserForm = (i, isView) => {
         setUserEditIndex(i);
@@ -67,18 +62,16 @@ export const UserPage = () => {
         setIsUserDeleteModal(false)
     };
 
-   
-
     return (
         <div className="row">
-            <div className="col-md-12 col-sm-12">
+            <div className="col-md-12">
 
-                <button type="button" className="btn btn-primary btn-sm" onClick={()=>handleModalToggle(true)}>Add User</button>
+                <button type="button1" className="btn btn-primary btn-sm" onClick={()=>handleModalToggle(true)}>Add User</button>
             </div>
 
             <div className="col-md-12 col-sm-12">
-                <table className="table">
-                    <thead>
+                <table className="table table-striped">
+                    <thead className="thead-dark">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
@@ -95,9 +88,9 @@ export const UserPage = () => {
                                 <td>{age}</td>
                                 <td>{location}</td>
                                 <td>
-                                    <button type="button" className="btn btn-primary btn-sm" onClick={() => handleEditUserForm(i,false)}>Update</button>
-                                    <button type="button" className="btn btn-danger btn-sm mx-2" onClick={()=>handleDelete(i)}>Delete</button>
-                                    <button type="button" className="btn btn-primary btn-sm" onClick={()=>handleEditUserForm(i,true)}>View</button>
+                                    <button type="button1" className="btn btn-primary btn-sm" onClick={() => handleEditUserForm(i,false)}>Update</button>
+                                    <button type="button1" className="btn btn-danger btn-sm  mx-1" onClick={()=>handleDelete(i)}>Delete</button>
+                                    <button type="button1" className="btn btn-primary btn-sm" onClick={()=>handleEditUserForm(i,true)}>View</button>
 
                                 </td>
                             </tr>

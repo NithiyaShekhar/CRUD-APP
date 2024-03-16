@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './LoginPage.scss';
 
 const LoginForm = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -14,23 +15,31 @@ const LoginForm = ({ onLogin }) => {
   };
 
   return (
-    <div>
-      <h2>Login Page</h2>
+    <div className='container'>
+      <h2 className='heading'>Login Page</h2>
+      <div className='input-text'>
+      <label className='label'>User Name:</label>
       <input
+        className='input'
         type="text"
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
+      </div>
       <br />
+      <div className='input-text'>
+      <label className='label'>Password</label>
       <input
+        className='input'
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+      </div>
       <br />
-      <button onClick={handleLogin}>Login</button>
+      <button className="button" onClick={handleLogin}>Login</button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
   );
