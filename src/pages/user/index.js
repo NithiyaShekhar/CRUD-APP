@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { userData } from '../../assets/data/user';
 import { UserForm } from '../../components/user'
 import { CommanAlert } from '../../components/common'
+import api from "../../services/api";
+
 export const UserPage = () => {
     const [userList, setUserList] = useState(userData)
     const [isUserModalForm, setIsUserModalForm] = useState(false)
@@ -11,6 +13,20 @@ export const UserPage = () => {
     const [userEditObj, setUserEditObj] = useState({})
     const [isViewModal, setIsViewModal] = useState(false)
 
+    useEffect(() => {
+        getFetchUsers();
+    }, []);
+
+   
+    const getFetchUsers = async () => {
+        try {
+            const response = await api.get('/users');
+            setUserList(response.data);
+        } catch (error) {
+            console.error('Error fetching users:', error);
+            throw error;
+        }
+    };
     const handleUserFromSubmit = (data) => {
 
         if (userEditIndex === -1) {
